@@ -22,7 +22,14 @@ initializeDBAndServer = async () => {
 };
 
 initializeDBAndServer();
-
+const covertObj = (obj) => {
+  return{
+    playerId: obj.player_id,
+    playerName: obj.player_name,
+    jerseyNumber: obj.jersey_number,
+    role: obj.role
+  }
+}
 // GET API 1
 
 app.get("/players/", async (request, response) => {
@@ -53,7 +60,7 @@ app.get("/players/:playerId", async (request, response) => {
   const query = `SELECT * FROM cricket_team
     WHERE player_id = ${playerId};`;
   const output = await db.get(query);
-  response.send(output);
+  response.send(convertObj(output));
 });
 
 // PUT API 4
