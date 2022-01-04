@@ -8,7 +8,7 @@ Content-Type: application/json
     "playerName":"Vishal",
     "jerseyNumber":17,
     "role": "Bowler"
-};
+}
 ###
 
 GET http://localhost:3000/players/2/
